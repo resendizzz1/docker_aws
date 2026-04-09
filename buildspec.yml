@@ -1,8 +1,14 @@
 version: 0.2
+
 phases:
   install:
     commands:
-      - echo "installing..."
+      - echo "Instalando..."
+  pre_build:
+    commands:
+      - echo "Iniciando sesión en Docker Hub..."
+      - echo "dckr_pat_uj1FbNd0vTJHHWymPi0uvIdjD8Y" | docker login -u "sebas1docker" --password-stdin
   build:
     commands:
+      - echo "Construyendo la imagen..."
       - docker build -t flask-app ./app
